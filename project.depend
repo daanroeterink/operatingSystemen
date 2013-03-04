@@ -1,0 +1,141 @@
+# depslib dependency file v1.0
+1353712307 source:/home/daan/Downloads/operatingSystemen/Allocator.cc
+	"main.h"
+	"Allocator.h"
+
+1353710509 /home/daan/Downloads/operatingSystemen/main.h
+	<list>
+	<iostream>
+	"asserts.h"
+	"Area.h"
+	"Allocator.h"
+
+1353525713 /home/daan/Downloads/operatingSystemen/asserts.h
+	<stdexcept>
+
+1353709014 /home/daan/Downloads/operatingSystemen/Area.h
+	<iostream>
+	"asserts.h"
+
+1354109743 /home/daan/Downloads/operatingSystemen/Allocator.h
+	"Area.h"
+
+1357906494 source:/home/daan/Downloads/operatingSystemen/Application.cc
+	<cstdlib>
+	"ansi.h"
+	"main.h"
+	"Stopwatch.h"
+	"Application.h"
+
+1353525688 /home/daan/Downloads/operatingSystemen/ansi.h
+	"common.h"
+
+1353710224 /home/daan/Downloads/operatingSystemen/common.h
+
+1353711098 /home/daan/Downloads/operatingSystemen/Stopwatch.h
+	<sys/resource.h>
+	<sys/times.h>
+	<times.h>
+	<time.h>
+	<sys/time.h>
+	<windows.h>
+
+1353710135 /home/daan/Downloads/operatingSystemen/Application.h
+	"Allocator.h"
+	"Area.h"
+
+1353712667 source:/home/daan/Downloads/operatingSystemen/Area.cc
+	"asserts.h"
+	"Area.h"
+
+1357896927 source:/home/daan/Downloads/operatingSystemen/FirstFit.cc
+	"FirstFit.h"
+
+1357897531 /home/daan/Downloads/operatingSystemen/FirstFit.h
+	"Fitter.h"
+
+1353710460 /home/daan/Downloads/operatingSystemen/Fitter.h
+	"main.h"
+	"Allocator.h"
+
+1354109817 source:/home/daan/Downloads/operatingSystemen/FirstFit2.cc
+	"FirstFit2.h"
+
+1357897539 /home/daan/Downloads/operatingSystemen/FirstFit2.h
+	"FirstFit.h"
+
+1360658910 source:/home/daan/Downloads/operatingSystemen/Fitter.cc
+	<cmath>
+	"ansi.h"
+	"Fitter.h"
+
+1354109837 source:/home/daan/Downloads/operatingSystemen/NextFit.cc
+	"main.h"
+	"NextFit.h"
+
+1357897523 /home/daan/Downloads/operatingSystemen/NextFit.h
+	"Fitter.h"
+
+1354109848 source:/home/daan/Downloads/operatingSystemen/NextFit2.cc
+	"NextFit2.h"
+
+1357897512 /home/daan/Downloads/operatingSystemen/NextFit2.h
+	"NextFit.h"
+
+1353713805 source:/home/daan/Downloads/operatingSystemen/RandomFit.cc
+	"main.h"
+	"RandomFit.h"
+	<cstdlib>
+
+1353710711 /home/daan/Downloads/operatingSystemen/RandomFit.h
+	"Allocator.h"
+
+1353714003 source:/home/daan/Downloads/operatingSystemen/Stopwatch.cc
+	<iostream>
+	<cstdio>
+	"asserts.h"
+	"Stopwatch.h"
+	<unistd.h>
+	<time.h>
+
+1353712672 source:/home/daan/Downloads/operatingSystemen/asserts.cc
+	"asserts.h"
+	"ansi.h"
+	<cstdio>
+
+1362394242 source:/home/daan/Downloads/operatingSystemen/McKarel.cc
+	"McKarel.h"
+
+1362393150 /home/daan/Downloads/operatingSystemen/McKarel.h
+	<math.h>
+	<vector>
+	"main.h"
+	"Allocator.h"
+
+1362392574 source:/home/daan/Downloads/operatingSystemen/main.cc
+	<ctime>
+	<csignal>
+	<cstdlib>
+	<getopt.h>
+	<process.h>
+	"ansi.h"
+	"main.h"
+	"RandomFit.h"
+	"FirstFit.h"
+	"FirstFit2.h"
+	"NextFit.h"
+	"NextFit2.h"
+	"McKarel.h"
+	<windows.h>
+	"Application.h"
+
+1354093507 source:/home/daan/Downloads/operatingSystemen/unix_error.cc
+	<cstring>
+	<cerrno>
+	"ansi.h"
+	"unix_error.h"
+
+1354093592 /home/daan/Downloads/operatingSystemen/unix_error.h
+	<stdexcept>
+	<string>
+
