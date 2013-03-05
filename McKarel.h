@@ -16,7 +16,7 @@ class McKarel : public Allocator
 
 private:
 
-    vector<Area*> **administratie;
+    vector<Area*> *administratie;
     int* areaByteSize;
 
 public :
@@ -32,6 +32,8 @@ public :
     void  free(Area *);			///< Application geeft een Area weer terug aan geheugenbeheer
     void  report();				///< Report performance statistics
     Area *searcher(int wanted);    ///< Search for empty area
+
+    int getClosestQuadratic(int wanted);
 };
 
 #endif

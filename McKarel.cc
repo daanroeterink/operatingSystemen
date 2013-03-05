@@ -3,11 +3,11 @@
 McKarel::McKarel(bool cflag)
     : Allocator(cflag, "MCKarel")
 {
-    administratie = new vector<Area*>*[AREASIZE]();
+    administratie = new vector<Area*>[AREASIZE]();
     areaByteSize  = new int[AREASIZE]();
     for(int i=0; i < AREASIZE; i++)
     {
-        administratie[i] = new vector<Area*>();
+       areaByteSize[i] = -1;
     }
 }
 
@@ -40,9 +40,16 @@ Area *McKarel::alloc(int wanted)
     }
 }
 
-void McKarel::free(Area *)
+void McKarel::free(Area* ap)
 {
-
+    int room = ap->getBase() / (size / AREASIZE);
+      //cout << "freeing 2 room: " << room << "baseaddress: "<< ap->getBase() << endl;
+    if(room != 0)
+        room --;
+    administratie[room].push_back(ap);
+    if((administratie[room].size() * areaByteSize[room]) == (size/AREASIZE)) {
+        areaByteSize[room] = -1;
+    }
 }
 
 void    McKarel::report()
@@ -52,28 +59,57 @@ void    McKarel::report()
 
 Area *McKarel::searcher(int wanted)
 {
-    if(wanted > (size/16))
+    //cout << "Wanted:" <<wanted << " - "  << size/AREASIZE << endl;
+    int tweemacht = getClosestQuadratic(wanted);
+
+    if(tweemacht > (size/AREASIZE))
     {
-        //todo
+        cout << "Bigger than one room " << endl;
     }
     else
     {
         for(int i =0; i < AREASIZE; i++)
         {
-            if(areaByteSize[i] == 0)
+            if(areaByteSize[i] == tweemacht && administratie[i].size() > 0)
             {
-                areaByteSize[i] = wanted;
-                vector<Area*>* areaVector = administratie[i];
-                //Check if there is still room in this classroom
-                if(ceil(((areaVector->size()+1)* areaByteSize[i])) > (size / AREASIZE))
-                {
-                    Area* ap = new Area((i*size/AREASIZE),wanted);
-                    areaVector->push_back(ap);
-                    return ap;
-                }
+                 cout << "Existing Area" << endl;
+
+
+                Area* retAP = administratie[i].back();
+                administratie[i].pop_back();
+                return retAP;
             }
+            else if(areaByteSize[i] == -1)
+            {
+                areaByteSize[i] = tweemacht;
+
+                 cout << "Emtpy Area" << endl;
+
+                while(tweemacht * 2 < size/AREASIZE) {
+                    Area* ap = new Area((i*(size/AREASIZE) + (tweemacht * administratie[i].size())),tweemacht);
+                    cout << *ap << endl;
+                    administratie[i].push_back(ap);
+                    tweemacht += tweemacht;
+                }
+
+                   cout << "Emtpy Area 2" << endl;
+
+                Area* retAP = administratie[i].back();
+                administratie[i].pop_back();
+                return retAP;
+            }
+            cout << "Fout" << endl;
         }
     }
     return 0;
 }
 
+int McKarel::getClosestQuadratic(int wanted)
+{
+    int closestQuadratic = 1;
+    while(closestQuadratic < wanted)
+    {
+        closestQuadratic *= 2;
+    }
+    return closestQuadratic;
+}
